@@ -454,6 +454,7 @@ export function ContactForm() {
       await sendEmail(data);
       toast("Success!");
     } catch(e) {
+      console.warn(e);
       toast("Failed to send contact form.", {
         classNames: {
           toast: "group-[.toaster]:bg-red-500 group-[.toaster]:border-red-700",

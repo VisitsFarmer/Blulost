@@ -24,7 +24,7 @@ export default function NotFound() {
     <main className="flex flex-col items-center justify-center text-center gap-4 p-4 h-screen">
       <h1 className="text-4xl font-bold">404</h1>
       <p className="text-xl">
-        Sorry, but I couldn't find the page you were looking for.
+        Sorry, but I couldn&apos;t find the page you were looking for.
       </p>
       <Button asChild>
         <Link href="/">

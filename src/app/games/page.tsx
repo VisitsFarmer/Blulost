@@ -66,7 +66,7 @@ export default async function GamesPage() {
         <Image src="/banners/og.png" alt="Games that Blulost has contributed to" width={1200} height={630} sizes="100vw" className="absolute left-0 right-0 top-0 bottom-0 w-full h-full object-cover -z-50 blur brightness-[60%]" />
         <h1 className="text-4xl font-bold">Games</h1>
         <p className="text-xl text-slate-200">
-          Games where Blulost's professional modeling and building skills have contributed to their success.
+          Games where Blulost&apos;s professional modeling and building skills have contributed to their success.
         </p>
         <footer className="absolute -bottom-[16px] left-0 right-0 flex flex-col gap-2 h-8 bg-gradient-to-t from-blue-500 to-transparent" role="presentation" />
       </header>

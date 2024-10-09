@@ -62,7 +62,7 @@ async function PastWorks() {
     const alt = img.name.replaceAll("-", " ").replace(/\.[^/.]+$/, "").split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
     return (
-      <Image draggable={false} src={`/works/${img.name}`} alt={alt} width={metadata.width ?? 1} height={metadata.height ?? 1} sizes="(max-width: 768px) 60vw, (max-width: 1024px) 30vw, 20vw" className="w-full h-auto rounded-lg" />
+      <Image key={`${img.name}-${i.toString()}`} draggable={false} src={`/works/${img.name}`} alt={alt} width={metadata.width ?? 1} height={metadata.height ?? 1} sizes="(max-width: 768px) 60vw, (max-width: 1024px) 30vw, 20vw" className="w-full h-auto rounded-lg" />
     );
   }));
 

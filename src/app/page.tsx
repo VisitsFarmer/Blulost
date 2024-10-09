@@ -4,7 +4,7 @@ import { reviews, universeIds, userId } from "@/components/constants";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { dehydrate, HydrationBoundary, QueryClient, useQuery } from "@tanstack/react-query";
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import { readdirSync, readFileSync } from "fs";
 import Image from "next/image";
 import Link from "next/link";
@@ -87,9 +87,9 @@ export default async function Home() {
               <p className="text-4xl font-bold">Hello, I am Blulost!</p>
               <p className="text-xl text-slate-200">
                 I am currently 17 years old, and I have been modeling low-poly and mid-poly cartoony Roblox games for the past 4 years, while also building games for the past 7 years.
-                I've had a deep passion for Roblox development ever since I was 10 years old, and my goal is to show you that passion while working with you.
+                I&apos;ve had a deep passion for Roblox development ever since I was 10 years old, and my goal is to show you that passion while working with you.
                 This website was made with the goal of expanding my works and portfolio to others, as I believe everyone should have a chance for success when designing their own games.
-                If you're interested in my works, don't hesitate to contact me! I would love to hear from you!
+                If you&apos;re interested in my works, don&apos;t hesitate to contact me! I would love to hear from you!
               </p>
             </main>
           </CardContent>
@@ -105,7 +105,7 @@ export default async function Home() {
               Top Games
             </h2>
             <p className="text-slate-200">
-              The top 3 Roblox games where Blulost's modeling and building experience has shown massive success rates.
+              The top 3 Roblox games where Blulost&apos;s modeling and building experience has shown massive success rates.
             </p>
           </header>
           <main className="flex flex-col md:flex-row gap-4 overflow-x-scroll">
@@ -212,7 +212,7 @@ export default async function Home() {
           <CardTitle>Interested in my work?</CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col gap-2">
-          Interested in everything you've seen so far? Feel free to contact me! I am always happy to work with a new client.
+          Interested in everything you&apos;ve seen so far? Feel free to contact me! I am always happy to work with a new client.
           <Button className="w-max bg-blue-500 hover:bg-blue-600 focus:bg-blue-600" asChild>
             <Link href="/contact">Contact Me</Link>
           </Button>
