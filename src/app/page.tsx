@@ -148,25 +148,29 @@ export default async function Home() {
                   reviews.map(function(review, i) {
                     return (
                       <CarouselItem className="basis-full md:basis-1/2 lg:basis-1/3" key={`${review.user}-${i.toString()}`}>
-                        <Link href={review.link} target="_blank" rel="noopener noreferrer">
-                          <Card>
-                            <CardHeader className="flex flex-row flex-wrap gap-2 space-y-0">
-                              <Image src={`/avatars/${review.avatar ?? "default.png"}`} alt={`${review.user}'s avatar`} width={400} height={400} sizes="48px" className="size-12 rounded-full aspect-square" />
-                              <main className="flex flex-col gap-1.5 w-max">
-                                <CardTitle className="flex items-center gap-1 w-max">
-                                  {review.display}
-                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 fill-blue-500">
-                                    <path fillRule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clipRule="evenodd" />
-                                  </svg>
-                                </CardTitle>
-                                <CardDescription className="w-max">{review.user}</CardDescription>
-                              </main>
-                            </CardHeader>
-                            <CardContent>
-                              {review.review}
-                            </CardContent>
-                          </Card>
-                        </Link>
+                        <Card>
+                          <CardHeader className="relative flex flex-row flex-wrap gap-2 space-y-0">
+                            <Image src={`/avatars/${review.avatar ?? "default.png"}`} alt={`${review.user}'s avatar`} width={400} height={400} sizes="48px" className="size-12 rounded-full aspect-square" />
+                            <main className="flex flex-col gap-1.5 w-max">
+                              <CardTitle className="flex items-center gap-1 w-max">
+                                {review.display}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6 fill-blue-500">
+                                  <path fillRule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clipRule="evenodd" />
+                                </svg>
+                              </CardTitle>
+                              <CardDescription className="w-max">{review.user}</CardDescription>
+                            </main>
+                            <Link href={review.link.toString()} target="_blank" rel="noopener noreferrer" className="absolute right-6 bottom-0 top-6 fill-slate-100 h-max">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="presentation" fill="currentColor" className="size-6">
+                                <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                              </svg>
+                              <span className="sr-only">Open X/Twitter post in new tab</span>
+                            </Link>
+                          </CardHeader>
+                          <CardContent>
+                            {review.review}
+                          </CardContent>
+                        </Card>
                       </CarouselItem>
                     );
                   })
