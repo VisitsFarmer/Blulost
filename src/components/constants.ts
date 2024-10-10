@@ -14,32 +14,58 @@ export type Review = {
   display: string;
   user: string;
   review: string;
+  link: URL;
   avatar?: string;
 };
 export const reviews: Review[] = [
   {
-    display: "VisitsFarmer",
-    user: "@VisitsFarmer",
-    review: "blulost is great i think idk lol",
-    avatar: "visitsfarmer.png",
+    display: "doBIG",
+    user: "@do_bigR",
+    review: "🐐",
+    link: new URL("https://x.com/do_bigR/status/1829604216756900221"),
+    avatar: "do_bigr.jpg",
   },
   {
-    display: "VisitsFarmer",
-    user: "@VisitsFarmer",
-    review: "blulost is great i think idk lol",
-    avatar: "visitsfarmer.png",
+    display: "PLAYSIDE",
+    user: "@PLAYSIDEgg",
+    review: "love it!",
+    link: new URL("https://x.com/PLAYSIDEgg/status/1814080926009459011"),
+    avatar: "playsidegg.jpg",
   },
   {
-    display: "VisitsFarmer",
-    user: "@VisitsFarmer",
-    review: "blulost is great i think idk lol",
-    avatar: "visitsfarmer.png",
+    display: "Ian",
+    user: "@Vamonoz4",
+    review: "LOVE THIS IS SUPER CREATIVE AND AMAZINGGGG",
+    link: new URL("https://x.com/Vamonoz4/status/1782518042125029698"),
+    avatar: "vamonoz4.jpg",
   },
   {
-    display: "VisitsFarmer",
-    user: "@VisitsFarmer",
-    review: "blulost is great i think idk lol",
-    avatar: "visitsfarmer.png",
+    display: "Elit",
+    user: "@ElitRBLX",
+    review: "Oh wow, nice! thanks :)",
+    link: new URL("https://x.com/ElitRBLX/status/1763985329344614736"),
+    avatar: "elitrblx.jpg",
+  },
+  {
+    display: "Brennan",
+    user: "@3DBrennan",
+    review: "much love bro thank you",
+    link: new URL("https://x.com/3DBrennan/status/1759689956081979813"),
+    avatar: "3dbrennan.jpg",
+  },
+  {
+    display: "Ready, set, more!",
+    user: "@readysetroblox",
+    review: "This is AWESOME! Keep up the great work 💪🔥",
+    link: new URL("https://x.com/readysetroblox/status/1760923679595122948"),
+    avatar: "readysetroblox.jpg",
+  },
+  {
+    display: "VuukStudios",
+    user: "@VuukStudios",
+    review: "This is looking epic! 🤩",
+    link: new URL("https://x.com/VuukStudios/status/1757474004116377833"),
+    avatar: "vuukstudios.jpg",
   },
 ];
 
