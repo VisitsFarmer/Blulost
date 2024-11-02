@@ -48,7 +48,7 @@ export default async function Home() {
             <FollowerCount />
             <p className="text-xl">Total Followers</p>
           </section>
-\        </main>
+        </main>
         <footer className="absolute -bottom-[16px] left-0 right-0 flex flex-col gap-2 h-8 bg-gradient-to-t from-blue-500 to-transparent" role="presentation" />
       </header>
       <main className="flex flex-col gap-4 mt-8">
