@@ -1,10 +1,8 @@
-import { basicFetch } from "@/components/actions";
 import { FollowerCount, PlayerCount, Top3Games, VisitCount } from "@/components/client";
-import { reviews, universeIds, userId } from "@/components/constants";
+import { reviews } from "@/components/constants";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import { readdirSync, readFileSync } from "fs";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,25 +29,6 @@ async function PastWorks() {
 };
 
 export default async function Home() {
-  const queryClient = new QueryClient();
-
-  await queryClient.prefetchQuery({
-    queryKey: ["players"],
-    queryFn: () => basicFetch("https://games.roblox.com/v1/games?universeIds=" + universeIds.join(",")),
-  });
-  await queryClient.prefetchQuery({
-    queryKey: ["visits"],
-    queryFn: () => basicFetch("https://games.roblox.com/v1/games?universeIds=" + universeIds.join(",")),
-  });
-  await queryClient.prefetchQuery({
-    queryKey: ["games"],
-    queryFn: () => basicFetch("https://games.roblox.com/v1/games?universeIds=" + universeIds.join(",")),
-  });
-  await queryClient.prefetchQuery({
-    queryKey: ["followers"],
-    queryFn: () => basicFetch("https://friends.roblox.com/v1/users/" + userId.toString() + "/followers/count"),
-  });
-
   return (
     <main className="p-4">
       <header className="flex flex-col gap-4 h-screen -mx-4 -mt-4 justify-center items-center relative">
@@ -57,21 +36,19 @@ export default async function Home() {
         <Image src="/logos/blulost.png" alt="Blulost" width={244} height={258} sizes="96px" className="size-24 self-center" />
         <h1 className="text-4xl font-bold">Blulost</h1>
         <main className="bg-blue-600/60 border-2 border-blue-300/60 rounded-lg backdrop-blur-lg flex flex-col md:flex-row items-center justify-center divide-y-2 md:divide-x-2 md:divide-y-0 divide-blue-300/60">
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            <section className="flex flex-col items-center gap-1 md:gap-2 p-4 w-full md:w-auto">
-              <PlayerCount />
-              <p className="text-xl">Total Players</p>
-            </section>
-            <section className="flex flex-col items-center gap-1 md:gap-2 p-4 w-full md:w-auto">
-              <VisitCount />
-              <p className="text-xl">Total Visits</p>
-            </section>
-            <section className="flex flex-col items-center gap-1 md:gap-2 p-4 w-full md:w-auto">
-              <FollowerCount />
-              <p className="text-xl">Total Followers</p>
-            </section>
-          </HydrationBoundary>
-        </main>
+          <section className="flex flex-col items-center gap-1 md:gap-2 p-4 w-full md:w-auto">
+            <PlayerCount />
+            <p className="text-xl">Total Players</p>
+          </section>
+          <section className="flex flex-col items-center gap-1 md:gap-2 p-4 w-full md:w-auto">
+            <VisitCount />
+            <p className="text-xl">Total Visits</p>
+          </section>
+          <section className="flex flex-col items-center gap-1 md:gap-2 p-4 w-full md:w-auto">
+            <FollowerCount />
+            <p className="text-xl">Total Followers</p>
+          </section>
+\        </main>
         <footer className="absolute -bottom-[16px] left-0 right-0 flex flex-col gap-2 h-8 bg-gradient-to-t from-blue-500 to-transparent" role="presentation" />
       </header>
       <main className="flex flex-col gap-4 mt-8">
@@ -109,9 +86,7 @@ export default async function Home() {
             </p>
           </header>
           <main className="flex flex-col md:flex-row gap-4 overflow-x-scroll">
-            <HydrationBoundary state={dehydrate(queryClient)}>
-              <Top3Games className="md:basis-1/2 lg:basis-1/3" />
-            </HydrationBoundary>
+            <Top3Games className="md:basis-1/2 lg:basis-1/3" />
           </main>
           <footer className="flex items-center">
             <Button asChild>
@@ -126,7 +101,14 @@ export default async function Home() {
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col md:flex-row gap-4 py-[4.5rem] sm:pt-0 sm:pb-6 sm:px-[4.5rem]">
-            <Carousel className="w-full cursor-grab active:cursor-grabbing">
+            <Carousel orientation="vertical" className="sm:hidden w-full cursor-grab active:cursor-grabbing">
+              <CarouselContent>
+                <PastWorks />
+              </CarouselContent>
+              <CarouselNext />
+              <CarouselPrevious />
+            </Carousel>
+            <Carousel className="hidden sm:block w-full cursor-grab active:cursor-grabbing">
               <CarouselContent>
                 <PastWorks />
               </CarouselContent>
@@ -199,7 +181,7 @@ export default async function Home() {
                             </main>
                           </CardHeader>
                           <CardContent>
-                            {review.review }
+                            {review.review}
                           </CardContent>
                         </Card>
                       </CarouselItem>

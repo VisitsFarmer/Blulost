@@ -8,6 +8,8 @@ export const universeIds: number[] = [
   5693522631,
   5629457769,
   5976020326,
+  6548976575,
+  6512924074,
 ];
 
 export type Review = {
